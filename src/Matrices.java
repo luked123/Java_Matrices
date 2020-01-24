@@ -132,4 +132,112 @@ public class Matrices {
 
         return sum;
     }
+
+    /** Adds two matrices together and returns the resulting matrix */
+    public static double[][] addMatrix(double[][] m1, double[][] m2){
+
+        // Checks to see if matrices have same dimensions
+        if(m1.length != m2.length){
+            System.out.println("Matrices must have the same dimensions. Returning null");
+            return null;
+        }
+        for(int r = 0; r < m1.length; r ++){
+            if(m1[r].length != m2[r].length){
+                System.out.println("Matrices must have the same dimensions. Returning null");
+                return null;
+            }
+        }
+
+        // Create the new matrix
+        double[][] sumMatrix = new double[m1.length][m1[0].length];
+
+        // Compute the sum of two matrices
+        for(int r = 0; r < m1.length; r++){
+            for(int c = 0; c < m1[r].length; c++){
+                sumMatrix[r][c] = m1[r][c] + m2[r][c];
+            }
+        }
+
+        return sumMatrix;
+    }
+
+    /** Adds two matrices together and returns the resulting matrix */
+    public static int[][] addMatrix(int[][] m1, int[][] m2){
+
+        // Checks to see if matrices have same dimensions
+        if(m1.length != m2.length){
+            System.out.println("Matrices must have the same dimensions. Returning null");
+            return null;
+        }
+        for(int r = 0; r < m1.length; r ++){
+            if(m1[r].length != m2[r].length){
+                System.out.println("Matrices must have the same dimensions. Returning null");
+                return null;
+            }
+        }
+
+        // Create the new matrix
+        int[][] sumMatrix = new int[m1.length][m1[0].length];
+
+        // Compute the sum of two matrices
+        for(int r = 0; r < m1.length; r++){
+            for(int c = 0; c < m1[r].length; c++){
+                sumMatrix[r][c] = m1[r][c] + m2[r][c];
+            }
+        }
+
+        return sumMatrix;
+    }
+
+    /** Multiples two matrices together and returns the resulting matrix */
+    public static double[][] multiplyMatrix(double[][] m1, double[][] m2){
+        // Checks to see if the number of columns in m1 is equal to the number of rows in m2
+        // Returns null if invalid
+        for(int r = 0; r < m1.length; r++){
+            for(int c = 0; c < m1[r].length; c++){
+                if(m1[r].length != m2.length){
+                    System.out.println("Number of columns in matrix 1 must match the number of rows in matrix 2. Returning null");
+                    return null;
+                }
+            }
+        }
+
+        double[][] productMatrix = new double[m1.length][m2[0].length];
+
+        for(int r = 0; r < productMatrix.length; r++){
+            for(int c = 0; c < productMatrix[r].length; c++){
+                for(int n = 0; n < m1[r].length; n++){
+                    productMatrix[r][c] += m1[r][n] * m2[n][c];
+                }
+            }
+        }
+
+        return productMatrix;
+    }
+
+    /** Multiples two matrices together and returns the resulting matrix */
+    public static int[][] multiplyMatrix(int[][] m1, int[][] m2){
+        // Checks to see if the number of columns in m1 is equal to the number of rows in m2
+        // Returns null if invalid
+        for(int r = 0; r < m1.length; r++){
+            for(int c = 0; c < m1[r].length; c++){
+                if(m1[r].length != m2.length){
+                    System.out.println("Number of columns in matrix 1 must match the number of rows in matrix 2. Returning null");
+                    return null;
+                }
+            }
+        }
+
+        int[][] productMatrix = new int[m1.length][m2[0].length];
+
+        for(int r = 0; r < productMatrix.length; r++){
+            for(int c = 0; c < productMatrix[r].length; c++){
+                for(int n = 0; n < m1[r].length; n++){
+                    productMatrix[r][c] += m1[r][n] * m2[n][c];
+                }
+            }
+        }
+
+        return productMatrix;
+    }
 }
